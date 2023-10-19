@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import prismadb from "@/lib/prismadb"
+import prismadb from "@/app/lib/prismadb"
 
             // @ts-ignore
 import bcrypt from "bcrypt"
