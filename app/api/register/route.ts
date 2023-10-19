@@ -1,5 +1,4 @@
-import { NextRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import prismadb from "@/lib/prismadb"
 
             // @ts-ignore
