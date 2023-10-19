@@ -1,29 +1,30 @@
 import { exec } from "child_process";
-import { NextRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 import { promisify } from "util";
 
 const execAsync = promisify(exec);
 
-export default async function handler(req: NextRequest, res: NextApiResponse) {
+export default async function handler(req: NextRequest) {
 
     if (req.method === "POST") {
-        const { movieName } = req.body;
+        const body = await req.json();
+        const movieName = body.movieName;
         try {
             const { stdout, stderr } = await execAsync(`python main.py ${movieName}`);
             if (stderr) {
                 console.log(stderr)
-                res.status(500).json({ error: "Script Execution Error" })
+                return NextResponse.json("Script Execution Error", {status: 401})
             } else {
                 const downloadLink = stdout.trim();
-                res.status(200).json({ downloadLink })
+                return NextResponse.json({ downloadLink })
             }
 
         } catch (error) {
             console.log(error)
-            res.status(500).json({ error: "Internal Server Error" })
+            return NextResponse.json("Something went wrong", { status: 500 })
         }
     } else {
-        res.status(405).json({ message: "Method not allowed" });
+        return NextResponse.json("Unauthorized method")
     }
 
 
