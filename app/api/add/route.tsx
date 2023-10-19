@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import prismadb from "../../lib/prismadb";
+import prismadb from "../../../lib/prismadb";
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { revalidatePath } from "next/cache";
