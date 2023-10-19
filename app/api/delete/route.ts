@@ -1,7 +1,6 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "../auth/[...nextauth]/route"
-import { NextRequest } from "next"
-import { NextResponse } from "next/server"
+import { NextResponse, NextRequest } from "next/server"
 import prismadb from "@/lib/prismadb"
 
 
@@ -13,10 +12,11 @@ export const DELETE = async (req: NextRequest) => {
         const body = await req.json()
         const { index } = body
         console.log(index);
-        
+        //@ts-ignore
         const session = await getServerSession(authOptions)
         const user = await prismadb.user.findUnique({
             where: {
+                //@ts-ignore
                 email: session?.user?.email
             }
         })
@@ -32,6 +32,7 @@ export const DELETE = async (req: NextRequest) => {
         const updatedList = updated?.notifications.filter((_, i) => i !== index)
         await prismadb.user.update({
             where: {
+                //@ts-ignore
                 email: user?.email
             },
             data: {
