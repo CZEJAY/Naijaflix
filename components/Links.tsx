@@ -77,7 +77,7 @@ const Links: React.FC<labelProps> = ({ label }) => {
         {
           !session && (
 
-            <Link href={"/api"} className="flex items-center gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><MdLogin />Login</Link>
+            <Link href={"/auth"} className="flex items-center gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><MdLogin />Login</Link>
           )
         }
       </div>
