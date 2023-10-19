@@ -1,10 +1,9 @@
-import { NextResponse } from "next/server";
-import { NextApiRequest } from "next";
+import { NextResponse, NextRequest} from "next/server";
 import { getServerSession } from "next-auth";
 import prismadb from "@/lib/prismadb"
 import { authOptions } from "../auth/[...nextauth]/route";
 
-export const POST = async (req: NextApiRequest) => {
+export const POST = async (req: NextRequest) => {
     //@ts-ignore
     const session = await getServerSession(authOptions)
     try {

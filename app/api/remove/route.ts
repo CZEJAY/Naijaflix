@@ -1,10 +1,11 @@
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+
+import { NextResponse, NextRequest } from "next/server";
 import { getServerSession } from "next-auth";
 import prismadb from "@/lib/prismadb";
 import { authOptions } from "../auth/[...nextauth]/route";
+import { log } from "console";
 
-export const DELETE = async (req: NextApiRequest) => {
+export const DELETE = async (req: NextRequest) => {
     //@ts-ignore
     const session = await getServerSession(authOptions)
     if(req.method === "DELETE"){
@@ -20,7 +21,8 @@ export const DELETE = async (req: NextApiRequest) => {
             })
 
             const existingId = user?.favoritemovies.includes(item.toString())
-            if(!existingId){
+            // log(existingId)
+            if(existingId){
                 return NextResponse.json({message: "Movie not found in favorites"})
             }
 

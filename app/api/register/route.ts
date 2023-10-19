@@ -1,11 +1,11 @@
-import { NextApiRequest } from "next";
+import { NextRequest } from "next";
 import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb"
 
             // @ts-ignore
 import bcrypt from "bcrypt"
 
-export async function POST(req: NextApiRequest,) {
+export async function POST(req: NextRequest,) {
             // @ts-ignore
     const body = await req.json()
 

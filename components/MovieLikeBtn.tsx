@@ -2,6 +2,8 @@ import axios from "axios"
 import React, { useState, useEffect } from "react"
 import toast from "react-hot-toast";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { useSession } from "next-auth/react";
+import { revalidatePath } from "next/cache";
 
 
 interface BtnProps {
@@ -13,11 +15,12 @@ interface BtnProps {
 const MovieLikeBtn: React.FC<BtnProps> = ({ item }) => {
     const [isFavorite, setIsFavorite] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const { data: session } = useSession()
 
     useEffect(() => {
         const checkIfFavorite = async () => {
             try {
-                const res = await axios.post(`/api/check/`, {item})
+                const res = await axios.post(`/api/check/`, { item })
                 setIsFavorite(res.data.isFavorite)
             } catch (error) {
                 console.log(error)
@@ -37,22 +40,27 @@ const MovieLikeBtn: React.FC<BtnProps> = ({ item }) => {
                         item
                     }
                 })
-                .then((res) => toast.success(res.data.message))
-                .catch((err) => toast.error(err.response.data.message))
+                    .then((res) => toast.success(res.data.message))
+                    .catch((err) => toast.error(err.response.data.message))
                 setIsFavorite(false)
                 setIsLoading(false)
+                revalidatePath("/")
             } else {
                 setIsLoading(true)
                 await axios.post("/api/add/", { item })
                     .then((res) => {
                         toast.success(res.data.message)
-                    
+                        setIsFavorite(true)
                     })
                     .catch((err) => {
                         toast.error(err.response.data.message)
+                        if (err.response.data.message) {
+                            setIsFavorite(false)
+
+                        }
                     })
-                setIsFavorite(true)
                 setIsLoading(false)
+                revalidatePath("/", "layout")
             }
 
         } catch (error) {
@@ -63,7 +71,7 @@ const MovieLikeBtn: React.FC<BtnProps> = ({ item }) => {
     return (
         <>
             <button onClick={(e) => handleClick(item, e)} >
-                {isFavorite ? <AiFillHeart className={isLoading ? "animate-spin" : ""} /> : <AiOutlineHeart className={isLoading ? "animate-spin" : ""}  />}
+                {isFavorite ? <AiFillHeart className={isLoading ? "animate-spin" : ""} /> : <AiOutlineHeart className={isLoading ? "animate-spin" : ""} />}
             </button>
         </>
     )

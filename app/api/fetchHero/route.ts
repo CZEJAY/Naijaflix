@@ -1,9 +1,9 @@
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextRequest, NextApiResponse } from "next"
 import axios from "axios";
 
 const BASE_URL = 'https://api.themoviedb.org/3'
 
-export const POST = async (req: NextApiRequest, res: NextApiResponse) => {
+export const POST = async (req: NextRequest, res: NextApiResponse) => {
     try {
         if(req.method == "POST") {
             const { heroId } = req.body

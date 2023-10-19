@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "../auth/[...nextauth]/route"
-import { NextApiRequest } from "next"
+import { NextRequest } from "next"
 import { NextResponse } from "next/server"
 import prismadb from "@/lib/prismadb"
 
@@ -8,7 +8,7 @@ import prismadb from "@/lib/prismadb"
 
 
 
-export const DELETE = async (req: NextApiRequest) => {
+export const DELETE = async (req: NextRequest) => {
     try {
         const body = await req.json()
         const { index } = body

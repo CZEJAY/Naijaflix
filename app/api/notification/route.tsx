@@ -1,10 +1,10 @@
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import prismadb from "@/lib/prismadb"
 import { authOptions } from "../auth/[...nextauth]/route";
 
-export const GET = async (req: NextApiRequest) => {
+
+export const GET = async (req: NextRequest) => {
     try {
         //@ts-ignore
         const session = await getServerSession(authOptions)
@@ -24,8 +24,9 @@ export const GET = async (req: NextApiRequest) => {
         return NextResponse.json({ notif }, { status: 200 })
 
     } catch (error) {
-
+        return NextResponse.json({ message: "Something went wrong" }, { status: 500 })
     }
 }
+
 
 

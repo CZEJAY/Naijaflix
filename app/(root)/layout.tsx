@@ -1,10 +1,10 @@
-import Navbar from '@/components/Navbar'
-import './globals.css'
+import '../globals.css'
 import type { Metadata } from 'next'
 import DarkMode from '@/components/ThemeSwitch'
 import SideBar from '@/components/SideBar'
 import ToastProvider from '@/context/ToastProvider'
 import AuthContext from '@/context/AuthContext'
+import Navbar from '@/components/Navbar'
 // import { Inter } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -23,8 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-slate-300/100 relative overflow-x-hidden dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90">
         <AuthContext>
+          <Navbar />
           <ToastProvider >
-            <Navbar />
             <div className="flex relative">
               {/* sidebar design */}
               <SideBar />
