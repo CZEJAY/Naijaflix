@@ -3,6 +3,7 @@ import  prismadb  from "@/lib/prismadb"
 import { getServerSession } from "next-auth"
 
 export const useFavorite = async () => {
+    //@ts-ignore
     const session = await getServerSession(authOptions)
     const favoritemovies = await  prismadb.user.findFirst({
         where: {
