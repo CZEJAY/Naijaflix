@@ -39,7 +39,6 @@ const MovieComponent: React.FC<movieProps> = ({ item, }) => {
             <div className="ml-1 flex items-center gap-1">
                 <MovieLikeBtn item={item} />
                 {/* <p className='text-xs text-gray-400 font-semibold'>{item.popularity} Popularity</p> */}
-                <p className='text-xs text-gray-400 font-semibold'>{item.vote_count} Likes</p>
                 {/* <p className='text-xs text-gray-400 font-semibold'>{item.release_date}</p> */}
             </div>
         </div>

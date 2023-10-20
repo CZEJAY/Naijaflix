@@ -7,13 +7,15 @@ import { revalidatePath } from "next/cache";
 
 interface BtnProps {
     item: {
-        id: string | number
+        id: string | number,
+        vote_count: number
     }
 }
 
 const MovieLikeBtn: React.FC<BtnProps> = ({ item }) => {
     const [isFavorite, setIsFavorite] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [likeCount, setLikeCount] = useState(item.vote_count)
 
     useEffect(() => {
         const checkIfFavorite = async () => {
@@ -71,6 +73,7 @@ const MovieLikeBtn: React.FC<BtnProps> = ({ item }) => {
             <button onClick={(e) => handleClick(item, e)} >
                 {isFavorite ? <AiFillHeart className={isLoading ? "animate-spin" : ""} /> : <AiOutlineHeart className={isLoading ? "animate-spin" : ""} />}
             </button>
+            <p className='text-xs text-gray-400 font-semibold'>{isFavorite ? likeCount + 1 : likeCount} Likes</p>
         </>
     )
 }
