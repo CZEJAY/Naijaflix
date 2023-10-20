@@ -11,10 +11,10 @@ interface movieProps {
 
 const MovieComponent: React.FC<movieProps> = ({ item, }) => {
     const imgUrl = "https://image.tmdb.org/t/p/w500"
-    
-    
 
-    
+
+
+
     return (
         <div className="group shadow-lg shadow-gray-400 dark:shadow-gray-700 dark:bg-black relative border-2 hover:scale-105 transition-all duration-500 object-scale-down rounded-t-lg">
             <Link className='' href={`/movie/${item.id}`} >
@@ -32,9 +32,15 @@ const MovieComponent: React.FC<movieProps> = ({ item, }) => {
                     </div>
                 </div>
             </Link>
+            <div className="ml-1 mb-1 flex">
+                <p className='text-xs text-gray-400 font-semibold'>{item.original_language}</p>
+                <p className='text-xs text-gray-400 font-semibold'>|</p>
+            </div>
             <div className="ml-1 flex items-center gap-1">
                 <MovieLikeBtn item={item} />
-                <p>{item.vote_count} Likes</p>
+                {/* <p className='text-xs text-gray-400 font-semibold'>{item.popularity} Popularity</p> */}
+                <p className='text-xs text-gray-400 font-semibold'>{item.vote_count} Likes</p>
+                {/* <p className='text-xs text-gray-400 font-semibold'>{item.release_date}</p> */}
             </div>
         </div>
     )
