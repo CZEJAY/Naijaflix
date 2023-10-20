@@ -1,25 +1,20 @@
 "use client"
+import axios from 'axios'
 import React, { useState } from 'react'
+import { CgSpinner } from 'react-icons/cg'
 
 const page = () => {
   const [movieName, setMovieName] = useState('')
-  const [dowloadLink, setDowloadLink] = useState('')
+  const [dowloadLink, setDowloadLink] = useState([])
+  const [loading, setLoading] = useState(false)
   const fetchMovieLink = async () => {
+    setLoading(true)
     try {
-      const response = await fetch(`http://localhost:3000/api/fetchHero`, {
-        method: "POST",
-        body: JSON.stringify({ movieName }),
-        headers: {
-          'Content-Type': 'application/json'
-        },
+      await axios.post('/api/getMovieLink', { movieName }).then((res) => {
+        setDowloadLink(res.data)
+        console.log(res.data)
       })
-
-      if (response.ok) {
-        const data = await response.json()
-        setDowloadLink(data.downloadLink)
-      } else {
-        console.log("Failed to fetch movie link")
-      }
+      setLoading(false)
     } catch (error) {
       console.log(error)
     }
@@ -39,9 +34,16 @@ const page = () => {
           onClick={fetchMovieLink}
           className='bg-blue-500 text-white px-4 py-2 rounded-lg ml-2'
         >
-          Get Download Link
+          {loading ? "" : "Get Link"}
+          {loading && (<CgSpinner className={loading ? "animate-spin" : ""} />)}
         </button>
-        {dowloadLink && <a href={dowloadLink} target="_blank" rel="noreferrer" className='ml-2'>Download Link</a>}
+        {dowloadLink && dowloadLink.map((item, index) => (
+          <div key={index} className='bg-slate-400 p-2 rounded-lg my-2'>
+            <a href={item} target="_blank" rel="noreferrer">
+              {item}
+            </a>
+          </div>
+        ))}
       </div>
     </div>
   )

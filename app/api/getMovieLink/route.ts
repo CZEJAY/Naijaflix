@@ -1,16 +1,18 @@
 import { exec } from "child_process";
+import { log } from "console";
 import { NextRequest, NextResponse } from "next/server";
 import { promisify } from "util";
 
 const execAsync = promisify(exec);
 
-export default async function handler(req: NextRequest) {
+export const POST = async (req: NextRequest) => {
 
     if (req.method === "POST") {
         const body = await req.json();
         const movieName = body.movieName;
+        log(movieName)
         try {
-            const { stdout, stderr } = await execAsync(`python main.py ${movieName}`);
+            const { stdout, stderr } = await execAsync(`python main.py "${movieName}"`);
             if (stderr) {
                 console.log(stderr)
                 return NextResponse.json("Script Execution Error", {status: 401})

@@ -63,7 +63,7 @@ const MovieDetailsPage: React.FC<pageProps> = ({ params }) => {
                   <Link href={`/watch/${details.id}`} className='flex items-center justify-center h-10 w-28 rounded-full text-white self-start bg-[#01b4e4] cursor-pointer hover:border-2 font-semibold hover:text-[#01b4e4] hover:border-[#01b4e4] hover:bg-black/10 transition ease-in-out duration-300'>
                     Watch
                   </Link>
-                  <Link href={`download/${details.id}`} className='flex items-center justify-center h-10 w-28 rounded-full text-white self-start bg-transparent font-semibold hover:text-[#01b4e4] hover:border-[#01b4e4] hover:bg-black/10 transition ease-in-out duration-300 border-2 cursor-pointer'>
+                  <Link href={`/download`} className='flex items-center justify-center h-10 w-28 rounded-full text-white self-start bg-transparent font-semibold hover:text-[#01b4e4] hover:border-[#01b4e4] hover:bg-black/10 transition ease-in-out duration-300 border-2 cursor-pointer'>
                     Download
                   </Link>
                 </div>
