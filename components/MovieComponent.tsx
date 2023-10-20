@@ -32,8 +32,9 @@ const MovieComponent: React.FC<movieProps> = ({ item, }) => {
                     </div>
                 </div>
             </Link>
-            <div className="ml-1">
+            <div className="ml-1 flex items-center gap-1">
                 <MovieLikeBtn item={item} />
+                <p>{item.vote_count} Likes</p>
             </div>
         </div>
     )
