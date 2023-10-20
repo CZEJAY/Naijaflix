@@ -48,6 +48,8 @@ const Profile = () => {
                 >
                     <img className="w-6 h-6 rounded-full"
                         style={{ objectFit: "cover" }}
+                        onMouseEnter={() => setUserModal(true)}
+                        onClick={toggleModal}
                         loading="lazy"
                         decoding="async"
                         referrerPolicy="no-referrer"
@@ -55,19 +57,15 @@ const Profile = () => {
                     <div
                         ref={modalRef}
                         onClick={toggleModal}
-
-                        // onMouseLeave={() => setUserModal(false)}
-
-                        onMouseEnter={() => setUserModal(true)}
-
+                        onMouseLeave={() => setUserModal(false)}
                         aria-hidden="true"
-                        className={`${userModal ? "block" : "hidden"} flex flex-col absolute top-8
+                        className={`${userModal ? "block transition-all duration-500" : "hidden scale-0"} flex flex-col absolute top-8
                         -right-5 items-center gap-1
                             justify-center w-28 h-auto 
                             rounded-lg dark:bg-[hsl(211,66%,15%)] 
                             bg-gray-100 text-[#01b4e4] 
                             dark:text-gray-200 font-bold text-xl 
-                            leading-none ring-2 py-2 px-2
+                            leading-none ring-2 py-2 px-2   
                             dark:ring-gray-900/80 z-[999] shadow-lg
                             shadow-black/60 backdrop-blur-lg`}>
                         <p className="text-xs text-center line-clamp-1">{session.user?.name}</p>

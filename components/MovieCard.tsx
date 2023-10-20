@@ -32,7 +32,7 @@ const MovieCard = (hero: any) => {
           }
         </h1>
       </div>
-      <div className='flex gap-7  flex-wrap justify-center'>
+      <div className='flex gap-7  flex-wrap justify-center '>
 
         {
           data && data.length > 0 && data.map((item: any, index: number) => (
