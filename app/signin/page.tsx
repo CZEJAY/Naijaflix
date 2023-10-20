@@ -9,6 +9,8 @@ import axios from "axios"
 import { FaSpinner } from "react-icons/fa"
 import toast from "react-hot-toast"
 import { useRef } from "react"
+import { useSession } from "next-auth/react"
+import { useEffect } from "react"
 
 
 const page = () => {
@@ -16,6 +18,13 @@ const page = () => {
 	const [data, setData] = useState({ name: "", email: "", password: "" })
 	const [loading, setLoading] = useState(false)
 	const formRef = useRef<HTMLFormElement>(null)
+	const { data: session } = useSession()
+
+	useEffect(() => {
+		if (session) {
+			window.location.href = "/"
+		}
+	}, [session])
 
 	const reset = () => {
 		setData({ name: "", email: "", password: "" })
@@ -104,14 +113,14 @@ const page = () => {
 					/>
 				</div>
 				<div className="mt-5 w-[90%] flex gap-4 items-center justify-center">
-					<div aria-disabled={loading} onClick={() => signIn("google", {callbackUrl: "/"}).then((callback) => {if (callback?.ok) { toast.success("User Logged In Successfully"), window.location.href = "/" }})} className="h-10 w-10 disabled:cursor-not-allowed transition hover:opacity-80 cursor-pointer rounded-full flex items-center justify-center" title='Google Provider'> <FcGoogle size={30} /> </div>
+					<div aria-disabled={loading} onClick={() => signIn("google", {callbackUrl: "/"}).then((callback) => {if (callback?.ok) { toast.success("User Logged In Successfully") }})} className="h-10 w-10 disabled:cursor-not-allowed transition hover:opacity-80 cursor-pointer rounded-full flex items-center justify-center" title='Google Provider'> <FcGoogle size={30} /> </div>
 					<div aria-disabled={loading}
 						className="h-10 w-10  
 					transition hover:opacity-80 
 					cursor-pointer rounded-full flex 
 					items-center justify-center disabled:cursor-not-allowed"
 						title='Github Provider'
-						onClick={() => signIn("github").then((callback) => { if (callback?.ok) { toast.success("User Logged In Successfully") } })}>
+						onClick={() => signIn("github").then((callback) => { if (callback?.ok) { toast.success("User Logged In Successfully")} })}>
 						<BsGithub size={30} />
 					</div>
 				</div>
