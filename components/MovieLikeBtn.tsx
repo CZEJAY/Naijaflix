@@ -2,7 +2,6 @@ import axios from "axios"
 import React, { useState, useEffect } from "react"
 import toast from "react-hot-toast";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { useSession } from "next-auth/react";
 import { revalidatePath } from "next/cache";
 
 
@@ -15,7 +14,6 @@ interface BtnProps {
 const MovieLikeBtn: React.FC<BtnProps> = ({ item }) => {
     const [isFavorite, setIsFavorite] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
-    const { data: session } = useSession()
 
     useEffect(() => {
         const checkIfFavorite = async () => {

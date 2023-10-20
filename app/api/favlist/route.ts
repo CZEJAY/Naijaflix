@@ -4,7 +4,6 @@ import prismadb from "../../../lib/prismadb";
 import { NextResponse } from "next/server";
 
 export const POST = async () => {
-    //@ts-ignore
     const session = await getServerSession(authOptions);
     try {
         const favList = await prismadb.user.findFirst({

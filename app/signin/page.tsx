@@ -40,14 +40,12 @@ const page = () => {
 	const login = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		setLoading(true)
-		signIn("credentials", { ...data, redirect: false }).then((callback) => {
+	 	signIn("credentials", { ...data, redirect: false }).then((callback) => {
 			if (callback?.error) {
 				toast.error(callback?.error)
-
 			}
 			if (callback?.ok && !callback.error) {
 				toast.success("User Logged In Successfully")
-				window.location.href = "/"
 
 			}
 		}).finally(() => {
@@ -106,11 +104,7 @@ const page = () => {
 					/>
 				</div>
 				<div className="mt-5 w-[90%] flex gap-4 items-center justify-center">
-					<div aria-disabled={loading} onClick={() => signIn("google", { callbackUrl: "/" as any }).then((callback) => {
-						if (callback?.ok && !callback.error) {
-							toast.success("User Logged In Successfully")
-						}
-					})} className="h-10 w-10 disabled:cursor-not-allowed transition hover:opacity-80 cursor-pointer rounded-full flex items-center justify-center" title='Google Provider'> <FcGoogle size={30} /> </div>
+					<div aria-disabled={loading} onClick={() => signIn("google", {callbackUrl: "/"}).then((callback) => {if (callback?.ok) { toast.success("User Logged In Successfully"), window.location.href = "/" }})} className="h-10 w-10 disabled:cursor-not-allowed transition hover:opacity-80 cursor-pointer rounded-full flex items-center justify-center" title='Google Provider'> <FcGoogle size={30} /> </div>
 					<div aria-disabled={loading}
 						className="h-10 w-10  
 					transition hover:opacity-80 

@@ -8,7 +8,7 @@ type props = {
 }
 const AuthContext = ({ children }: props) => {
     return (
-        <SessionProvider basePath='/auth'>{children}</SessionProvider>
+        <SessionProvider >{children}</SessionProvider>
     )
 }
 

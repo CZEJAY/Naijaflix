@@ -6,7 +6,6 @@ import { BsChevronCompactDown } from "react-icons/bs"
 import { useState } from "react"
 import Link from "next/link"
 import { useRef } from "react"
-import { CgProfile } from "react-icons/cg"
 import { AiOutlineHome, AiOutlineOrderedList } from "react-icons/ai"
 import { BiMovie } from "react-icons/bi"
 import { MdLogin, MdOutlineRecentActors } from "react-icons/md"
@@ -77,7 +76,7 @@ const Links: React.FC<labelProps> = ({ label }) => {
         {
           !session && (
 
-            <Link href={"/auth"} className="flex items-center gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><MdLogin />Login</Link>
+            <Link href={"/signin"} className="flex items-center gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><MdLogin />Login</Link>
           )
         }
       </div>

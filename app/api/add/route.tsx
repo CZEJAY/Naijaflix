@@ -1,8 +1,8 @@
 import { NextResponse, NextRequest } from "next/server";
 import prismadb from "../../../lib/prismadb";
 import { getServerSession } from 'next-auth/next'
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { revalidatePath } from "next/cache";
+import { authOptions } from "../auth/[...nextauth]/route";
 
 export const POST = async (req: NextRequest) => {
     //@ts-ignore

@@ -6,7 +6,7 @@ import ToastProvider from "@/context/ToastProvider"
 
 
 export const metadata: Metadata = {
-    title: 'Naija | Authentication',
+    title: 'Naijaflix | Authentication',
     description: 'Naijaflix authentication',
 }
 
