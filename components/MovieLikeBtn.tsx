@@ -69,12 +69,12 @@ const MovieLikeBtn: React.FC<BtnProps> = ({ item }) => {
 
     }
     return (
-        <>
+        <div className="absolute bg-white dark:bg-black backdrop-blur-sm right-14 -bottom-6 flex flex-col items-center justify-center rounded-full z-[999999] text-center p-1 h-14 w-14">
             <button onClick={(e) => handleClick(item, e)} >
                 {isFavorite ? <AiFillHeart className={isLoading ? "animate-spin" : ""} /> : <AiOutlineHeart className={isLoading ? "animate-spin" : ""} />}
             </button>
-            <p className='text-xs text-gray-400 font-semibold'>{isFavorite ? likeCount + 1 : likeCount} Likes</p>
-        </>
+            <p className='text-[11px] text-black dark:text-white  font-semibold'>{isFavorite ? likeCount + 1 : likeCount} Likes</p>
+        </div>
     )
 }
 
