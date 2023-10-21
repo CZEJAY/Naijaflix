@@ -18,7 +18,7 @@ const MovieComponent: React.FC<movieProps> = ({ item, }) => {
     return (
         <div className="group shadow-lg shadow-gray-400 dark:shadow-gray-700 dark:bg-black relative border-2 hover:scale-105 transition-all duration-500 object-scale-down rounded-t-lg">
             <Link className='' href={`/movie/${item.id}`} >
-                <div className='cursor-pointer flex flex-col  relative items-center justify-center w-36 sm:w-48   rounded-lg mb-10'>
+                <div className='cursor-pointer flex flex-col  relative items-center justify-center w-[165px] sm:w-48   rounded-lg mb-10'>
                     <img src={imgUrl + item.poster_path} alt={item.title} className='group-hover:scale-100 transition-all duration-500 object-scale-down rounded-lg w-full  h-full' />
                     <div className=" flex flex-col  backdrop-hue-rotate-15  group-hover:-translate-y-6 transition-all  absolute bottom-0 py-2 px-3 self-baseline group-hover:bg-black bg-transparent backdrop-blur-lg z-50 duration-500">
                         <p className='font-semibold text-sm sm:text-xl secondary line-clamp-1'>{item.title}</p>

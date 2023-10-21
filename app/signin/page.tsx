@@ -55,13 +55,12 @@ const page = () => {
 			}
 			if (callback?.ok && !callback.error) {
 				toast.success("User Logged In Successfully")
-
+				reset()
+				formRef.current?.reset()
 			}
 		}).finally(() => {
 			setLoading(false)
 		})
-		reset()
-		formRef.current?.reset()
 	}
 
 	return (
