@@ -48,12 +48,17 @@ const Profile = () => {
            '
                 >
                     <Image className="w-6 h-6 rounded-full"
-                        style={{ objectFit: "cover" }}
+                        priority={true}
+                        quality={100}
+                        layout="fixed"
+                        objectFit="cover"
+                        objectPosition="center"
+                        placeholder="blur"
+                        blurDataURL={`${session.user?.image}`}
                         onMouseEnter={() => setUserModal(true)}
                         width={24}
                         height={24}
                         onClick={toggleModal}
-                        loading="lazy"
                         decoding="async"
                         referrerPolicy="no-referrer"
                         src={`${session.user?.image}`} alt="Proflie" />
