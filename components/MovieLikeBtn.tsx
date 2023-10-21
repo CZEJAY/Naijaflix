@@ -73,7 +73,7 @@ const MovieLikeBtn: React.FC<BtnProps> = ({ item }) => {
             <button onClick={(e) => handleClick(item, e)} >
                 {isFavorite ? <AiFillHeart className={isLoading ? "animate-spin" : ""} /> : <AiOutlineHeart className={isLoading ? "animate-spin" : ""} />}
             </button>
-            <p className='text-[11px] text-black dark:text-white  font-semibold'>{isFavorite ? likeCount + 1 : likeCount} Likes</p>
+            <p className='text-[11px] cursor-default text-black dark:text-white  font-semibold'>{isFavorite ? likeCount + 1 : likeCount} Likes</p>
         </div>
     )
 }

@@ -33,7 +33,7 @@ const MovieComponent: React.FC<movieProps> = ({ item, }) => {
                 </div>
             </Link>
             <div className="ml-1 mb-1 flex">
-                <p className='line-clamp-3 sm:line-clamp-5 group-hover:text-gray-50 text-black dark:text-gray-50 text-sm sm:text-xs'>{item.overview}</p>
+                <p className='line-clamp-3 sm:line-clamp-5 group-hover:font-black cursor-pointer text-black dark:text-gray-50 text-sm sm:text-md'>{item.overview}</p>
 
                 {/* <p className='text-xs text-gray-400 font-semibold'>{item.original_language}</p>
                 <p className='text-xs text-gray-400 font-semibold'>|</p> */}

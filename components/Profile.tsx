@@ -7,6 +7,7 @@ import Link from "next/link"
 import { useRef } from "react"
 
 import { FiLogOut } from "react-icons/fi"
+import Image from "next/image"
 
 const Profile = () => {
     const { data: session } = useSession()
@@ -46,9 +47,11 @@ const Profile = () => {
             dark:bg-gray-100
            '
                 >
-                    <img className="w-6 h-6 rounded-full"
+                    <Image className="w-6 h-6 rounded-full"
                         style={{ objectFit: "cover" }}
                         onMouseEnter={() => setUserModal(true)}
+                        width={24}
+                        height={24}
                         onClick={toggleModal}
                         loading="lazy"
                         decoding="async"
