@@ -5,10 +5,10 @@ import MovieCard from "@/components/MovieCard";
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col min-h-full">
+      <main className="dark flex flex-col min-h-full">
         <Hero />
         <div className="flex flex-col items-center justify-center  ">
-          <section className="flex flex-col w-full bg-transparent p-1 sm:p-4 rounded-md shadow-md backdrop-filter backdrop-saturate-500 backdrop-brightness-150  backdrop-opacity-50  backdrop-blur-md">
+          <section className="dark flex flex-col w-full bg-transparent p-1 sm:p-4 rounded-md shadow-md backdrop-filter backdrop-saturate-500 backdrop-brightness-150  backdrop-opacity-50  backdrop-blur-md">
             <MovieCard />
             {/* make a linear gradient background */}
             {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent  to-sky-black/30 -z-50" />

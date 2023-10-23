@@ -18,7 +18,7 @@ const Navbar = async () => {
 
   return (
     <nav
-      className='
+      className=' dark
           h-20 w-full
           dark:bg-transparent
          bg-[hsl(200,23%,97%)] text-[hsl(211,66%,15%)]

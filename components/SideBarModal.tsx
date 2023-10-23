@@ -3,10 +3,22 @@ import React from 'react'
 const SideBarModal = () => {
   return (
     <div
-      className='relative h-20 w-full bg-slate-700 flex flex-col rounded-lg'
+      className='relative p-1 h-auto gap-2 border-4 w-full bg-slate-950 flex flex-col rounded-lg'
     >
-      <div className="self-center"><h3 className='font-bold'>Favorites</h3></div>
-      
+      <span className='font-bold text-xs ml-2 opacity-80'>Menu</span>
+      <hr className='' />
+      <div className="flex hover:bg-gray-800 transition-all duration-200 px-2 rounded-md py-1">
+        <a href='#' className='font-base text-sm'>Favorites</a>
+      </div>      
+      <div className="flex hover:bg-gray-800 transition-all duration-200 px-2 rounded-md py-1">
+        <a href='#' className='font-base text-sm'>Movies</a>
+      </div>      
+      <div className="flex hover:bg-gray-800 transition-all duration-200 px-2 rounded-md py-1">
+        <a href='#' className='font-base text-sm'>TV Shows</a>
+      </div>      
+      <div className="flex hover:bg-gray-800 transition-all duration-200 px-2 rounded-md py-1">
+        <a href='#' className='font-base text-sm'>Get Recommendation</a>
+      </div>      
     </div>
   )
 }
