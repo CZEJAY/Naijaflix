@@ -22,7 +22,7 @@ const SearchBar = () => {
         <form action="" className="relative">
             <input
             className="w-full h-12 bg-transparent rounded-lg 
-            border-2 border-gray-900 dark:border-gray-200 focus:outline-none focus:border-[#00c2ff]
+            border-4   focus:outline-none
             px-1
             "
             value={search}

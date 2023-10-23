@@ -9,7 +9,7 @@ const SideBar = () => {
   return (
     <div 
     className='
-    hidden shadow-lg border p-2 lg:flex overflow-y-auto 
+    hidden shadow-lg border px-2 py-2 lg:flex overflow-y 
     w-[20rem] bg-gradient-to-t flex-col gap-4
     from-slate-100/ to-transparent 
     dark:from-gray-900/ dark:to-transparent  
@@ -18,6 +18,7 @@ const SideBar = () => {
       <SearchBar />
       <SideBarModal />
       <Accord />
+      <SideBarDModal />
       <SideBarDModal />
     </div>
   )

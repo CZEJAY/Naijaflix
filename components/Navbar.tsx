@@ -46,11 +46,7 @@ const Navbar = async () => {
       <div
         className='hidden md:flex  items-center justify-center gap-3'
       >
-        <LinksScreen label='Home' />
-        <LinksScreen label='TV Shows' />
-        <LinksScreen label='Movies' />
-        <LinksScreen label='New & Popular' />
-        <LinksScreen label='My List' />
+        
       </div>
 
       <div className='ml-auto flex gap-4 items-center relative px-2'>

@@ -9,6 +9,7 @@ import {
     CommandSeparator,
     CommandShortcut,
 } from "@/components/ui/command"
+import Link from "next/link"
 
 
 const SideBarDModal = () => {
@@ -27,7 +28,7 @@ const SideBarDModal = () => {
                     </CommandGroup>
                     <CommandSeparator />
                     <CommandGroup heading="Settings">
-                        <CommandItem>Profile</CommandItem>
+                        <CommandItem><Link href={"/profile"}>Profile</Link></CommandItem>
                         <CommandItem>Billing</CommandItem>
                         <CommandItem>Settings</CommandItem>
                     </CommandGroup>
