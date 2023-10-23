@@ -4,7 +4,7 @@ import { BsMoon, BsSun } from 'react-icons/bs'
 type Theme = "Light" | "Dark"
 
 const DarkMode = () => {
-  const [theme, setTheme] = useState<Theme>("Light")
+  const [theme, setTheme] = useState<Theme>("Dark")
 
   const toggleTheme = () => {
     if (theme === "Light") {

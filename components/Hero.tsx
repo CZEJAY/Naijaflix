@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { fetchMovie } from '@/hooks/hook'
 import { AiFillStar } from 'react-icons/ai';
 import Link from 'next/link';
+import { Skeleton } from './ui/skeleton';
 
 
 const Hero = () => {
@@ -29,8 +30,8 @@ const Hero = () => {
 
   return (
     <>
-      <div className={`${!hero ? "animate-pulse" : "animate-none" }  w-full h-96 mb-10 bg-slate-300 flex items-start justify-start relative text-black w-xs`} >
-        {hero.length > 0 && hero[index].backdrop_path && hero[index].title && (
+      <div className={`${!hero ? "animate-pulse" : "animate-none"}  w-full h-96 mb-10 bg-slate-300 flex items-start justify-start relative text-black w-xs`} >
+        {hero.length > 0 && hero[index].backdrop_path && hero[index].title ? (
           <div className='w-full h-full relative'>
             <img src={`${imgUrl}${hero[index].backdrop_path}`} alt="" className='h-full w-full object-cover absolute' />
             <div className='absolute top-0 left-0 w-full h-full bg-black/50 flex items-baseline  justify-start'>
@@ -58,10 +59,36 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        )}
+        ) :
+          <Skeleton className='w-full h-full relative'>
+            {/* <Skeleton className='absolute top-0 left-0 w-full h-full flex items-baseline  justify-start'> */}
+            <Skeleton className='px-2 md:px-10  text-ellipsis max-w-xl lg:max-w-4xl w-full h-full flex flex-col items-center justify-center'>
+                <Skeleton className='text-white mb-2 text-2xl md:text-3xl lg:text-5xl font-bold self-start cursor-default '></Skeleton>
+                <Skeleton className='text-white mb-2 text-sm md:text-xl self-start font-semibold cursor-default line-clamp-4 max-w-prose'></Skeleton>
+                <Skeleton className="flex self-start gap-2 items-center">
+                  <Skeleton className='secondary text-sm  font-semibold self-start  cursor-default'></Skeleton>
+                  <Skeleton className='secondary text-sm  font-semibold self-start  cursor-default'></Skeleton>
+                  <Skeleton className='secondary text-sm  font-semibold self-start  cursor-default'></Skeleton>
+                  <Skeleton className='secondary text-sm  font-semibold self-start mt-1 cursor-default'></Skeleton>
+                </Skeleton>
+                <Skeleton className="flex self-start mt-2 gap-5">
+                  <Skeleton className='group flex drop-shadow-md  items-center justify-center h-10 w-28 rounded-full text-white self-start  hover:border-2 font-semibold transition ease-in-out duration-300 '>
+                    <Skeleton className='group-hover:animate-pulse transition ease-in-out duration-300' >
+                      
+                    </Skeleton>
+                  </Skeleton>
+                  <Skeleton className='group flex drop-shadow-md items-center justify-center h-10 w-28 rounded-full text-white self-start bg-transparent font-semibold  transition ease-in-out duration-300 border-2 '>
+                    <Skeleton className='group-hover:animate-bounce transition ease-in-out duration-300' >
+                      
+                    </Skeleton>
+                  </Skeleton>
+                </Skeleton>
+              </Skeleton>
+            </Skeleton>
+          // </Skeleton>
+        }
       </div>
     </>
-
   )
 }
 
