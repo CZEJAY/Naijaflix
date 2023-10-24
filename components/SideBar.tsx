@@ -16,7 +16,7 @@ const SideBar = () => {
     ${isOpen ? 'translate-x-0' : '-translate-x-full'}
      shadow-lg border px-2 py-2  overflow-y 
     w-[20rem] bg-gradient-to-t flex-col gap-4
-    from-slate-100/ to-transparent 
+    from-slate-100/ to-transparent bg-gray-950
     dark:from-gray-900/ dark:to-transparent  
     z-10 opacity-90 dark:opacity-100 transition-all 
     duration-500 ease-in-out delay-75 sideBar`}>
