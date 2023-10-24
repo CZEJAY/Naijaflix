@@ -28,7 +28,9 @@ const SideBarDModal = () => {
                     </CommandGroup>
                     <CommandSeparator />
                     <CommandGroup heading="Settings">
-                        <CommandItem><Link href={"/profile"}>Profile</Link></CommandItem>
+                        <Link href={'/profile'} className="!cursor-pointer">
+                            <CommandItem>Profile</CommandItem>
+                        </Link>
                         <CommandItem>Billing</CommandItem>
                         <CommandItem>Settings</CommandItem>
                     </CommandGroup>

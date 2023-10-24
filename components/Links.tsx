@@ -12,6 +12,7 @@ import { MdLogin, MdOutlineRecentActors } from "react-icons/md"
 import { BiSlideshow } from "react-icons/bi"
 import { GiFilmProjector } from "react-icons/gi"
 import { useSession } from "next-auth/react"
+import SideBar from "./SideBar"
 
 
 interface labelProps {
@@ -48,7 +49,7 @@ const Links: React.FC<labelProps> = ({ label }) => {
       <h3 className="font-semibold ">{label}</h3>
       <BsChevronCompactDown className={`${userModal ? "rotate-180" : ""} w-5 h-5 transition-all duration-500 ease-in-out`} aria-hidden="true" />
 
-      <div
+      {/* <div
         ref={modalRef}
         onMouseLeave={() => setUserModal(false)}
         tabIndex={0}
@@ -57,8 +58,8 @@ const Links: React.FC<labelProps> = ({ label }) => {
         // onClick={handleUserModal}
         onKeyDown={handleUserModal}
         aria-label="User Menu"
-        className={`${userModal ? "block" : "hidden"} flex flex-col absolute top-8
-          -right-5 items-center 
+        className={`${userModal ? "block" : "hidden"} flex flex-col absolute top-0
+          left-0 items-center 
             justify-center w-32 h-auto 
             rounded-lg dark:bg-[#0d253f] 
             bg-gray-200 text-gray-900 
@@ -67,19 +68,7 @@ const Links: React.FC<labelProps> = ({ label }) => {
             dark:ring-gray-900/80 z-[999] shadow-lg
              shadow-black/60 backdrop-blur-lg`}
       >
-        <Link href={"#"} className="flex items-center hover:text-white gap-1 w-full active:bg-gray-950 p-1 hover:bg-gray-900 hover:underline rounded-md h-full text-center text-sm"><AiOutlineHome /> Home</Link>
-        <Link href={"#"} className="flex items-center hover:text-white gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><BiMovie /> Movies</Link>
-        <Link href={"#"} className="flex items-center hover:text-white gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><MdOutlineRecentActors /> Popular</Link>
-        <Link href={"#"} className="flex items-center hover:text-white gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><BiSlideshow /> Tv Shows</Link>
-        <Link href={"#"} className="flex items-center hover:text-white gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><GiFilmProjector /> Series</Link>
-        <Link href={"#"} className="flex items-center hover:text-white gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><AiOutlineOrderedList /> My List</Link>
-        {
-          !session && (
-
-            <Link href={"/signin"} className="flex items-center gap-1 w-full h-full text-center hover:underline hover:bg-gray-900 p-1 rounded-md active:bg-gray-900 text-sm"><MdLogin />Login</Link>
-          )
-        }
-      </div>
+      </div> */}
     </div>
   )
 }
