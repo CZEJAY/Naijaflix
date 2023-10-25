@@ -1,28 +1,12 @@
 "use client"
-import { signOut, useSession } from "next-auth/react"
-import { useState } from "react"
-import { useRef } from "react"
+import { useSession } from "next-auth/react"
 import Image from "next/image"
-import { useSideBarToggle } from "@/store/SideBarState"
+import { useSideBarStore } from "@/context/store/useSideBar"
 
 const Profile = () => {
-    const toggleSideBar = useSideBarToggle((state: any) => state.toggle)
     const { data: session } = useSession()
-    const [userModal, setUserModal] = useState(false)
-    const modalRef = useRef<HTMLDivElement>(null)
-
-    const toggleModal = () => {
-        setUserModal(!userModal)
-        // if clik is anywhere else close the modal
-        document.addEventListener("mousedown", (e) => {
-            if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-                setUserModal(false)
-            } else {
-                return null
-            }
-        })
-
-    }
+    const toggle = useSideBarStore((state: any) => state.toggle)
+    
 
     if (!session) return null
     return (
@@ -52,10 +36,9 @@ const Profile = () => {
                         objectPosition="center"
                         placeholder="blur"
                         blurDataURL={`${session.user?.image}`}
-                        onMouseEnter={() => setUserModal(true)}
                         width={24}
                         height={24}
-                        onClick={toggleSideBar}
+                        onClick={toggle}
                         decoding="async"
                         referrerPolicy="no-referrer"
                         src={`${session.user?.image}`} alt="Proflie" />
