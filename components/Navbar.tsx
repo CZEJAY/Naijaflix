@@ -60,7 +60,7 @@ const Navbar = async () => {
           )
         } */}
 
-        {isLoggedIn ? <Profile /> : null}
+         <Profile /> 
       </div>
 
     </nav>
