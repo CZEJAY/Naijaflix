@@ -18,11 +18,10 @@ import UploadBtn from "./UploadBtn"
 export function EditBtn() {
     const { data: session } = useSession()
     const [name, setName] = useState(session?.user?.name)
-    const [picture, setPicture] = useState<File>()
     if (!session) return null
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        console.log(picture, name);
+        console.log(name);
 
     }
     return (
@@ -39,7 +38,7 @@ export function EditBtn() {
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
-                        <div className="grid grid-cols-4 items-center gap-4">
+                        {/* <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="picture" className="text-right">
                                 Picture
                             </Label>
@@ -49,7 +48,7 @@ export function EditBtn() {
                                 onChange={(e) => setPicture(e.target.files[0] as File)}
                                 type="file"
                             />
-                        </div>
+                        </div> */}
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="name" className="text-right">
                                 Name
