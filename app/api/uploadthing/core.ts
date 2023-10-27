@@ -20,7 +20,8 @@ export const ourFileRouter = {
       if (!session?.user) throw new Error("Unauthorized");
         
       const user = await prismadb.user.findUnique({
-        where: { email: session.user.email },
+        //@ts-ignore
+        where: { email: session?.user?.email },
     })
       
  

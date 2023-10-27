@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="dark  bg-slate-300/100 relative overflow-x-hidden dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90">
+      <body className="dark  bg-white relative overflow-x-hidden dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90">
         <AuthContext>
           <Navbar />
           <ToastProvider >

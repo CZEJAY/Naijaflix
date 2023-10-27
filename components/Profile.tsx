@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import CompImg from "./Image"
 import { useSession } from "next-auth/react"
 import { useSideBarStore } from "@/context/store/useSideBar"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"

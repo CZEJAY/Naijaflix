@@ -16,7 +16,7 @@ const SideBar = () => {
     w-[20rem] bg-gradient-to-t flex-col 
     from-slate-100/ to-transparent bg-gray-950 gap-2
     dark:from-gray-900/ dark:to-transparent  h-full
-    z-10 opacity-90 dark:opacity-100 transition-all 
+    z-[99999999999999] opacity-90 dark:opacity-100 transition-all 
     duration-500 ease-in-out delay-75 sideBar`}>
       <SearchBar />
       <SideBarModal />

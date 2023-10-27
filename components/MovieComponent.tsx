@@ -6,10 +6,11 @@ import MovieLikeBtn from './MovieLikeBtn'
 
 interface movieProps {
     item: any,
-    toggleFavorite?: (id: number) => void
+    toggleFavorite?: (id: number) => void,
+    isSearch: boolean
 }
 
-const MovieComponent: React.FC<movieProps> = ({ item, }) => {
+const MovieComponent: React.FC<movieProps> = ({ item,  }) => {
     const imgUrl = "https://image.tmdb.org/t/p/w500"
 
 
@@ -20,7 +21,7 @@ const MovieComponent: React.FC<movieProps> = ({ item, }) => {
             <Link className='group' href={`/movie/${item.id}`} >
                 <div className='cursor-pointer overflow-hidden flex flex-col  relative items-center justify-center w-[163px] sm:max-h-60 h-44 sm:w-48   rounded-lg mb-1'>
                     <img src={imgUrl + item.poster_path} alt={item.title} className='group-hover:scale-100 transition-all duration-500 object-cover rounded-lg w-[158px]  self-start h-full' />
-                    <div className=" flex flex-col w-full max-w-[157px] backdrop-hue-rotate-15  md:group-hover:-translate-y-6 transition-all  absolute bottom-0 py-2 px-3 self-baseline group-hover:bg-black bg-transparent backdrop-blur-lg z-50 duration-500">
+                    <div className=" flex flex-col w-full max-w-[157px] backdrop-hue-rotate-15  md:group-hover:-translate-y-6 transition-all  absolute bottom-0 py-2 px-3 self-baseline group-hover:bg-black bg-transparent backdrop-blur-lg z-[9] duration-500">
                         <p className='font-semibold text-sm sm:text-xl secondary line-clamp-1'>{item.title}</p>
                         <p className='line-clamp-1 sm:line-clamp-3 text-gray-300 group-hover:text-gray-50 dark:text-gray-50 text-sm font-semibold'>{item.tagline}</p>
                         <div>
@@ -38,8 +39,8 @@ const MovieComponent: React.FC<movieProps> = ({ item, }) => {
                 {/* <p className='text-xs text-gray-400 font-semibold'>{item.original_language}</p>
                 <p className='text-xs text-gray-400 font-semibold'>|</p> */}
             </div>
-            <div className="ml-1 relative flex items-center gap-1">
-                <MovieLikeBtn item={item} />
+            <div className={`flex ml-1 relative  items-center gap-1`}>
+                <MovieLikeBtn isSearch={true} item={item} />
                 {/* <p className='text-xs text-gray-400 font-semibold'>{item.popularity} Popularity</p> */}
                 {/* <p className='text-xs text-gray-400 font-semibold'>{item.release_date}</p> */}
             </div>
