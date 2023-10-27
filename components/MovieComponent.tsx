@@ -7,7 +7,6 @@ import MovieLikeBtn from './MovieLikeBtn'
 interface movieProps {
     item: any,
     toggleFavorite?: (id: number) => void,
-    isSearch: boolean
 }
 
 const MovieComponent: React.FC<movieProps> = ({ item,  }) => {

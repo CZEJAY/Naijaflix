@@ -56,7 +56,7 @@ const page = ({ params }: props) => {
         {
           search && search.length > 0 ? search.map((movie: any) => (
             <div className="flex flex-row self-center flex-wrap">
-              <MovieComponent key={movie.id} item={movie} isSearch={true} />
+              <MovieComponent key={movie.id} item={movie} />
             </div>
           ))
             : <h1>No Result Found</h1>
