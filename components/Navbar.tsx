@@ -44,9 +44,22 @@ const Navbar = async () => {
       </div>
 
       <div
-        className='hidden md:flex  items-center justify-center gap-3'
+        className='flex  items-center justify-center gap-3'
       >
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4386764806395713"
+        //@ts-ignore
+          crossorigin="anonymous"></script>
         
+        <ins class="adsbygoogle"
+        //@ts-ignore
+          style="display:block"
+          data-ad-client="ca-pub-4386764806395713"
+          data-ad-slot="6809224037"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({ });
+        </script>
       </div>
 
       <div className='ml-auto flex gap-4 items-center relative px-2'>
@@ -60,7 +73,7 @@ const Navbar = async () => {
           )
         } */}
 
-         <Profile /> 
+        <Profile />
       </div>
 
     </nav>
