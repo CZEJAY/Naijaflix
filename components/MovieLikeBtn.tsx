@@ -24,7 +24,7 @@ const MovieLikeBtn: React.FC<BtnProps> = ({ item, isSearch }) => {
                 const res = await axios.post(`/api/check/`, { item })
                 setIsFavorite(res.data.isFavorite)
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }
         }
         checkIfFavorite()

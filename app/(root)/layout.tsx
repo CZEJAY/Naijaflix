@@ -10,9 +10,12 @@ import Mobile from '@/components/mobile'
 
 // const inter = Inter({ subsets: ['latin'] })
 
+
 export const metadata: Metadata = {
-  title: 'Naijaflix',
-  description: 'A naijaflix app',
+    title: 'Naijaflix',
+    description: 'A naijaflix app',
+    themeColor: '#000000',
+    colorScheme: 'dark',
 }
 
 export default function RootLayout({

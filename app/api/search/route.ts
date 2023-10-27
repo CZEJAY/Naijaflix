@@ -5,8 +5,11 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     try {
         const body = await req.json();
         const { query, isAdult, page } = body
+        console.log(query);
+        
         if (query) {
             const url = `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${page || 1}`;
+            const seriesUrl = `https://api.themoviedb.org/3/search/tv?query=${query}&include_adult=false&language=en-US&page=${page || 1}`;
             const options = {
                 method: 'GET',
                 headers: {
@@ -16,14 +19,11 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             };
 
            const result = await axios.get(url, options)
-           if(result.data) {
-            return NextResponse.json(result.data)
+           const seriesResult = await axios.get(seriesUrl, options)
+           
+           if(seriesResult.data && result.data) {
+            return NextResponse.json({series: seriesResult.data, movies: result.data, query}, {status: 200})
            }
-
-            fetch(url, options)
-                .then(res => res.json())
-                .then(json => console.log(json))
-                .catch(err => console.error('error:' + err));
         }
         return NextResponse.json({ message: `Hello ${query}` })
     } catch (error) {

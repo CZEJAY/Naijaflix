@@ -5,6 +5,9 @@ import MovieCard from "@/components/MovieCard";
 export default function Home() {
   return (
     <>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4386764806395713"
+    //@ts-ignore
+     crossorigin="anonymous" />
       <main className="dark flex flex-col min-h-full">
         <Hero />
         <div className="flex flex-col items-center justify-center  ">

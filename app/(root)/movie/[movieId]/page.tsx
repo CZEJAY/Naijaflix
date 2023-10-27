@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { AiFillStar } from 'react-icons/ai'
 import { FaSpinner } from 'react-icons/fa'
+import { Skeleton } from '@/components/ui/skeleton'
 
 
 interface pageProps {
@@ -33,9 +34,9 @@ const MovieDetailsPage: React.FC<pageProps> = ({ params }) => {
   return (
     <>
 
-      <div className={`w-full h-96 mb-10 bg-slate-300 flex items-start justify-start relative text-black w-xs`} >
-
-        {details && details.backdrop_path && details.title && (
+      <div className={`w-full h-96 mb-10 flex items-start justify-start relative text-black w-xs`} >
+        
+        {details && details.backdrop_path && details.title ? (
           <div className='w-full h-full relative'>
             <img src={`${imgUrl}${details?.backdrop_path}`} alt="" className='h-full w-full object-cover absolute' />
             <div className='absolute top-0 left-0 w-full h-full bg-black/50 flex items-baseline  justify-start'>
@@ -79,7 +80,11 @@ const MovieDetailsPage: React.FC<pageProps> = ({ params }) => {
               </div>
             </div>
           </div>
-        )}
+        ):
+        (
+          <Skeleton className='w-full h-full'/>
+        )
+        }
 
       </div>
 
