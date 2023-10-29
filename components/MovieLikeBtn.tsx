@@ -9,11 +9,10 @@ interface BtnProps {
     item: {
         id: string | number,
         vote_count: number
-    },
-    isSearch: boolean
+    }
 }
 
-const MovieLikeBtn: React.FC<BtnProps> = ({ item, isSearch }) => {
+const MovieLikeBtn: React.FC<BtnProps> = ({ item }) => {
     const [isFavorite, setIsFavorite] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [likeCount, setLikeCount] = useState(item.vote_count)
@@ -70,11 +69,11 @@ const MovieLikeBtn: React.FC<BtnProps> = ({ item, isSearch }) => {
 
     }
     return (
-        <div className={`${isSearch ? "hidden" : "flex"} absolute bg-white dark:bg-black backdrop-blur-sm right-14 -bottom-6  flex-col items-center justify-center rounded-full z-[9] text-center p-1 h-14 w-14`}>
+        <div className={`absolute bg-white dark:bg-black backdrop-blur-sm right-14 -bottom-6  flex-col items-center justify-center rounded-full z-[9] text-center p-1 h-[58px] w-14`}>
             <button onClick={(e) => handleClick(item, e)} >
                 {isFavorite ? <AiFillHeart className={isLoading ? "animate-spin" : ""} /> : <AiOutlineHeart className={isLoading ? "animate-spin" : ""} />}
             </button>
-            <p className='text-[11px] cursor-default text-black dark:text-white  font-semibold'>{isFavorite ? likeCount + 1 : likeCount} Likes</p>
+            <p className='text-[10px] cursor-default text-black dark:text-white  font-semibold'>{isFavorite ? likeCount + 1 : likeCount} Likes</p>
         </div>
     )
 }
