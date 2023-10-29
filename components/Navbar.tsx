@@ -44,9 +44,9 @@ const Navbar = async () => {
       </div>
 
       <div
-        className='flex  items-center justify-center gap-3'
+        className='flex items-center justify-center gap-3'
       >
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4386764806395713"
+        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4386764806395713"
         //@ts-ignore
           crossorigin="anonymous"></script>
         
@@ -59,7 +59,7 @@ const Navbar = async () => {
           data-full-width-responsive="true"></ins>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({ });
-        </script>
+        </script> */}
       </div>
 
       <div className='ml-auto flex gap-4 items-center relative px-2'>

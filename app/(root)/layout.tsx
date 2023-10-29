@@ -26,9 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4386764806395713"
+        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4386764806395713"
           //@ts-ignore
-          crossorigin="anonymous" />
+          crossorigin="anonymous" /> */}
       </head>
       <body className="dark  bg-white relative overflow-x-hidden dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90">
         <AuthContext>
