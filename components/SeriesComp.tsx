@@ -39,7 +39,7 @@ const SeriesComp: React.FC<movieProps> = ({ item,  }) => {
                 <p className='text-xs text-gray-400 font-semibold'>|</p> */}
             </div>
             <div className={`flex ml-1 relative  items-center gap-1`}>
-                <MovieLikeBtn isSearch={true} item={item} />
+                <MovieLikeBtn item={item} />
                 {/* <p className='text-xs text-gray-400 font-semibold'>{item.popularity} Popularity</p> */}
                 {/* <p className='text-xs text-gray-400 font-semibold'>{item.release_date}</p> */}
             </div>
